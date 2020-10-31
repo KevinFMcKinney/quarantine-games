@@ -1,2 +1,2 @@
-# quarantine-games
-Website about games that can be played during quarantine.
+# Quarantine Games
+A GitHub repo for our class project :)
