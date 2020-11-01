@@ -49,4 +49,13 @@ html {
 #last-tab {
     border-right: none;
 }
-
+#left-nav{
+    float: left;
+    width: 160px;
+    margin: 0;
+    padding: 1em;
+    border-right: 1px solid gray;
+}
+#content h2{
+    margin-left: 15vw;
+}
