@@ -20,7 +20,7 @@
     font-size: x-large;
 }
 
-#tabs button {
+button {
     margin-right: 0;
     border: none;
     outline: none;
@@ -35,7 +35,7 @@
     color: white;
 }
 
-button:hover{
+button:hover {
     background: #6B88FC;
     transition-duration: .4s;
 }
@@ -45,6 +45,7 @@ button:hover{
     top: 140px;
     right: 0px;
 }
+
 html {
     padding-top: 160px;
 }
