@@ -42,50 +42,28 @@ button:hover{
 
 html {
     padding-top: 160px;
+    height: 100%;
 }
 
 #last-tab {
     border-right: none;
 }
-#left-nav{
-    float: left;
-    width: 160px;
-    margin: 0;
-    padding: 1em;
-    border-right: 1px solid gray;
-}
-
 
 a:visited {
     color:inherit;
 }
 
-h2 {
+#contact {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+h1, h3 {
     font-family: 'Play', sans-serif;
 }
 
-#content { 
-    margin-left: 192px;
-    margin-right: 160px;
-}
-
-#solitaire {
-    float: right;
-    padding-top: 20px;
-}
-
-#solitaire-text {
-    float: left;
-    width: 300px;
-}
-
-#games {
-    margin: auto;
-    width: 70%;
-}
-
 #footer {
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
