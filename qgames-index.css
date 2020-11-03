@@ -20,7 +20,7 @@
     font-size: x-large;
 }
 
-button {
+#tabs button {
     margin-right: 0;
     border: none;
     outline: none;
@@ -40,6 +40,11 @@ button:hover{
     transition-duration: .4s;
 }
 
+#search{
+    position: fixed;
+    top: 140px;
+    right: 0px;
+}
 html {
     padding-top: 160px;
 }
@@ -48,6 +53,7 @@ html {
     border-right: none;
 }
 #left-nav{
+    position: fixed;
     float: left;
     width: 160px;
     margin: 0;
