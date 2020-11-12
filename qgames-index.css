@@ -90,17 +90,21 @@ h2 {
 #games {
     margin: auto;
     width: 70%;
+    padding:5px;
 }
 
 #footer {
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color:#6B88FC;
+    padding:3px;
 }
 
 #footer p{
     padding-left: 20px;
     padding-bottom: 0px;
+    padding-top:0px;
+    margin:0;
 }
