@@ -90,6 +90,7 @@ h2 {
 #games {
     margin: auto;
     width: 70%;
+    padding:5px;
 }
 
 #footer {
