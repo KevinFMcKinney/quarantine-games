@@ -73,8 +73,10 @@ h2 {
 }
 
 #content { 
-    margin-left: 192px;
-    margin-right: 160px;
+    margin-left: 200px;
+    margin-right: 225px;
+    background-color:#BFCCFF;
+    border-radius: 5px;
 }
 
 #solitaire {
@@ -107,4 +109,26 @@ h2 {
     padding-bottom: 0px;
     padding-top:0px;
     margin:0;
+}
+#gameImg {
+    //background-color: #DEE2E6;
+    text-align:center;
+    //border-radius: 5px;
+    width:375px;
+    padding:10px; 
+    margin-left: 95px; 
+}
+img {
+    border-radius:10px;
+}
+#gameCaption {
+    //background-color:#DEE2E6;
+    text-align:center;
+    //border-radius: 10px;
+    margin-top:5px;
+    padding:5px;
+}
+#title2 {
+    border-bottom: solid;
+    border-width: 2px;
 }
