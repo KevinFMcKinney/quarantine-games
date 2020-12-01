@@ -2,6 +2,9 @@
 if (!isset($_POST['created'])){
     createUser();
 }
+else if(!isset($_COOKIE["username"])){
+    print "User is logged in";
+}
 else{
     successfulRegistration();
 }
@@ -84,6 +87,7 @@ TOPTWO;
     fwrite($file, $username);
     fwrite($file, ',');
     fwrite($file, $password);
+    setcookie("username", $username, time() + 360);
     fclose($file);
 }
 
