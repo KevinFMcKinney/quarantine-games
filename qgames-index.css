@@ -41,10 +41,10 @@ button:hover {
     transition-duration: .4s;
 }
 
-#search{
+#login{
     position: fixed;
-    top: 140px;
-    right: 0px;
+    top: 170px;
+    right: 30px;
 }
 
 html {

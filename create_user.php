@@ -85,7 +85,7 @@ TOPTWO;
     $username = $_POST["user"];
     $password = $_POST["pass"];
     fwrite($file, $username);
-    fwrite($file, ',');
+    fwrite($file, ':');
     fwrite($file, $password);
     setcookie("username", $username, time() + 360);
     fclose($file);

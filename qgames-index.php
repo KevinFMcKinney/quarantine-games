@@ -31,7 +31,7 @@
         </div>
 
     </div>
-    <p id="search">Sign Up/Log In</p>
+    <p><?php print "<a id='login' href = 'login.php'>Log In/Register</a>"; ?></p>
 
     <div id="left-nav">
 
