@@ -49,18 +49,13 @@ button:hover {
 
 html {
     padding-top: 160px;
+    background-image: url("Images/white.png");
+    background-repeat: repeat;
+    background-size: contain;
 }
 
 #last-tab {
     border-right: none;
-}
-#left-nav{
-    position: fixed;
-    float: left;
-    width: 160px;
-    margin: 0;
-    padding: 1em;
-    border-right: 1px solid gray;
 }
 
 
@@ -70,11 +65,18 @@ a:visited {
 
 h2 {
     font-family: 'Play', sans-serif;
+    font-size: xx-large;
+}
+
+h3 {
+    font-size: xx-large;
+    font-family: 'Play', sans-serif;
 }
 
 #content { 
-    margin-left: 192px;
-    margin-right: 160px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 50px;
 }
 
 #solitaire {
@@ -89,22 +91,36 @@ h2 {
 
 #games {
     margin: auto;
-    width: 70%;
     padding:5px;
 }
 
-#footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:#6B88FC;
-    padding:3px;
+#games {
+    background: rgba(107, 136, 252, .7);
+    border-radius: 5px;
+    padding: 25px;
 }
 
-#footer p{
-    padding-left: 20px;
-    padding-bottom: 0px;
-    padding-top:0px;
-    margin:0;
+iframe {
+    border: none;
+    text-align: center;
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+#purpose {
+    background: rgba(107, 136, 252, .7);
+    border-radius: 5px;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+#gimage { 
+    margin: auto;
+    display: block;
+    width: 500px;
 }
