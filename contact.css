@@ -43,6 +43,8 @@ button:hover{
 html {
     padding-top: 160px;
     height: 100%;
+    background-image: url('Images/white.png');
+    background-size: contain;
 }
 
 #last-tab {
@@ -62,38 +64,36 @@ h1, h3 {
     font-family: 'Play', sans-serif;
 }
 
-#footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:#6B88FC;
-    padding:3px;
-}
 #tommyInfo {
     width:30%;
     float:left;
-    padding:5px;
-    background-color: #9EB1FF;
+    padding:15px;
+    background-color: rgba(107, 136, 252, .7);
     border-radius:5px;
     margin:3px;
+    font-family: 'Roboto', sans-serif;
 }
+
 #kevinInfo {
     width:30%;
     float:left;
-    padding:5px;
-    background-color: #9EB1FF;
+    padding:15px;
+    background-color: rgba(107, 136, 252, .7);
     border-radius:5px;
     margin:3px;
+    font-family: 'Roboto', sans-serif;
 }
+
 #uzairInfo {
     width:30%;
     float:left;
-    padding:5px;
-    background-color: #9EB1FF;
+    padding:15px;
+    background-color: rgba(107, 136, 252, .7);
     border-radius:5px;
     margin:3px;
+    font-family: 'Roboto', sans-serif;
 }
+
 h3 {
     text-align:center;
 }
