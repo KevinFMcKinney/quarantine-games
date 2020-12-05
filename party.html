@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="content.css">
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>$(document).ready(function(){
+    // jQuery methods go here
+            var dropDownArray = new Array();
+            dropDownArray[0] = document.querySelector("#box1");
+            dropDownArray[1] = document.querySelector("#box2");
+            dropDownArray[2] = document.querySelector("#box3");
+            function showContent(event){
+                console.log("Clicked");
+                var pSelector = event.target.id;
+                pSelector = "p#" + pSelector;
+                $(pSelector).toggle();
+                }
+            
+            for(var i = 0; i < dropDownArray.length; i++){
+                dropDownArray[i].addEventListener("click", showContent);
+                $("p#" + dropDownArray[i].id).hide();
+            }
+    });
+    </script>
 	
 </head>
 
@@ -38,9 +58,20 @@
         <h1 id="genre">Party</h1>
 
         <div class="box">
-            <h2>Cards Against Humanity</h2>
-            <p>A fun, whacky party game where you compete with your friends to make the whackiest combination of words, and only the funniest will be crowned the victor!!~ You can play it here at: <a href=https://pretendyoure.xyz/zy>https://pretendyoure.xyz/zy</a></p>
+            <h2 id="box1">Cards Against Humanity</h2>
+            <p id="box1">A fun, whacky party game where you compete with your friends to make the whackiest combination of words, and only the funniest will be crowned the victor!!~ You can play it here at: <a href=https://pretendyoure.xyz/zy>https://pretendyoure.xyz/zy</a></p>
         </div>
+        
+        <div class="box">
+            <h2 id="box2">Fishbowl</h2>
+            <p id="box2">Fishbowl is a fun, guessing game for all ages! Just hop on voice call and try to guess the word through charades, taboo or password. The minimum to play is 4 people, and the more the merrier! Check it out <a href="https://fishbowl-game.com/">here!</a></p>
+        </div>
+        
+        <div class="box">
+            <h2 id="box3">Fishbowl</h2>
+            <p id="box3">Fishbowl is a fun, guessing game for all ages! Just hop on voice call and try to guess the word through charades, taboo or password. The minimum to play is 4 people, and the more the merrier! Check it out <a href="https://fishbowl-game.com/">here!</a></p>
+        </div>
+        
 
 	</div>
 
