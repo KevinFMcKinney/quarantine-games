@@ -106,6 +106,70 @@
 					die("Query Failed: ($mysqli->error <br> SQL command = $sql");
 				}
 			}
+		}else if ($_POST['mines'] == 'Interested') {
+			$command = "SELECT num FROM games WHERE game = \"mines\"";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			$num = $num + 1;
+			$sql = "UPDATE games SET num = " . $num . " WHERE game = \"mines\"";
+			$newresult = $mysqli->query($sql);
+			if (!$newresult) {
+				die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+			}
+		} else if ($_POST['mines'] == 'Not Interested') {	
+			$command = "SELECT num FROM games WHERE game = \"mines\"";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			if ($num != 0) {
+				$num = $num - 1;
+				$sql = "UPDATE games SET num = " . $num . " WHERE game = \"mines\"";
+				$newresult = $mysqli->query($sql);
+				if (!$newresult) {
+					die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+				}
+			}
+		} else if ($_POST['picapix'] == 'Interested') {
+			$command = "SELECT num FROM games WHERE game = \"picapix\"";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			$num = $num + 1;
+			$sql = "UPDATE games SET num = " . $num . " WHERE game = \"picapix\"";
+			$newresult = $mysqli->query($sql);
+			if (!$newresult) {
+				die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+			}
+		} else if ($_POST['picapix'] == 'Not Interested') {	
+			$command = "SELECT num FROM games WHERE game = \"picapix\"";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			if ($num != 0) {
+				$num = $num - 1;
+				$sql = "UPDATE games SET num = " . $num . " WHERE game = \"picapix\"";
+				$newresult = $mysqli->query($sql);
+				if (!$newresult) {
+					die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+				}
+			}
 		}
 
 		header("Location: https://fall-2020.cs.utexas.edu/cs329e-bulko/tjensen/project4/adventure.php");
