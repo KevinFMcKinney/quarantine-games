@@ -124,5 +124,16 @@ p {
     display: block;
     width: 500px;
 }
-
+#ajaxContainer {
+    background: rgba(107, 136, 252, .7);
+    border-radius: 5px;
+    padding: 25px;
+    float:left;
+    width:20%;
+    text-align:center;
+}
+#ajaxContainer button {
+    width:50%;
+    margin-left:25%;
+}
 

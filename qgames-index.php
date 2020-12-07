@@ -103,9 +103,6 @@
 			xhttp.send();
 		}
 	</script>
-	<div id="ajaxDiv">
-		<button onclick="getTop()">View Top Games</button>	
-	</div>
         <div id="purpose">
             <h2>The Purpose</h2>
             <p>During the pandemic, it's hard to socialize and not feel isolated. So our purpose was to showcase easy to access games on the internet for you to play with friends and family to connect.</p>
@@ -114,7 +111,11 @@
         </div>
 
     </div>
-    
+    <div id="ajaxContainer">
+        <h2>Top Games</h2>
+        <div id="ajaxDiv"></div>
+        <button width = 25px; onclick="getTop()">View Top Games</button>
+    </div>
 
 </div>
 </div>
