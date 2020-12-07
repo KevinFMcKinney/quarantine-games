@@ -60,7 +60,6 @@
         }
         ?></p>
 
-    //<div id="left-nav">
 
 
     <div id="content">
@@ -98,7 +97,6 @@
                 captionArray[4]="Rocket League is a vehicular soccer video game developed and published by Psyonix. Described as 'soccer, but with rocket-powered cars', Rocket League has up to eight players assigned to each of the two teams, using rocket-powered vehicles to hit a ball into their opponent's goal and score points over the course of a match. The game includes single-player and multiplayer modes which can be played both locally and online, including cross-platform play between all versions. <em>(Source: <a href='https://en.wikipedia.org/wiki/Rocket_League'>wikipedia.org</a>)</em>"
                 function randoGame() {
                     number = Math.floor((Math.random())*(5))
-                    //img.src=imageArray[number]
                     document.getElementById("titlegame").innerHTML = titles[number]
                     document.getElementById("gameCaption").innerHTML = captionArray[number]
                     document.getElementById("vid").src = sources[number]
