@@ -458,6 +458,102 @@
 					die("Query Failed: ($mysqli->error <br> SQL command = $sql");
 				}
 			}
+		}else if ($_POST['3-5-8'] == 'Interested') {
+			$command = "SELECT num FROM games WHERE game = '3-5-8'";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			$num = $num + 1;
+			$sql = "UPDATE games SET num = " . $num . " WHERE game = '3-5-8'";
+			$newresult = $mysqli->query($sql);
+			if (!$newresult) {
+				die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+			}
+		} else if ($_POST['3-5-8'] == 'Not Interested') {	
+			$command = "SELECT num FROM games WHERE game = '3-5-8'";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			if ($num != 0) {
+				$num = $num - 1;
+				$sql = "UPDATE games SET num = " . $num . " WHERE game = '3-5-8'";
+				$newresult = $mysqli->query($sql);
+				if (!$newresult) {
+					die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+				}
+			}
+		}else if ($_POST['500'] == 'Interested') {
+			$command = "SELECT num FROM games WHERE game = '500'";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			$num = $num + 1;
+			$sql = "UPDATE games SET num = " . $num . " WHERE game = '500'";
+			$newresult = $mysqli->query($sql);
+			if (!$newresult) {
+				die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+			}
+		} else if ($_POST['500'] == 'Not Interested') {	
+			$command = "SELECT num FROM games WHERE game = '500'";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			if ($num != 0) {
+				$num = $num - 1;
+				$sql = "UPDATE games SET num = " . $num . " WHERE game = '500'";
+				$newresult = $mysqli->query($sql);
+				if (!$newresult) {
+					die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+				}
+			}
+		} else if ($_POST['bridge'] == 'Interested') {
+			$command = "SELECT num FROM games WHERE game = 'Bridge'";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			$num = $num + 1;
+			$sql = "UPDATE games SET num = " . $num . " WHERE game = 'Bridge'";
+			$newresult = $mysqli->query($sql);
+			if (!$newresult) {
+				die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+			}
+		} else if ($_POST['bridge'] == 'Not Interested') {	
+			$command = "SELECT num FROM games WHERE game = 'Bridge'";
+			$result = $mysqli->query($command);
+			if (!$result) {
+				die("Query failed: ($mysqli->error <br> SQL command = $command");
+			}
+			while($row = $result->fetch_assoc()) {
+				$num = $row["num"];
+			}
+			if ($num != 0) {
+				$num = $num - 1;
+				$sql = "UPDATE games SET num = " . $num . " WHERE game = 'Bridge'";
+				$newresult = $mysqli->query($sql);
+				if (!$newresult) {
+					die("Query Failed: ($mysqli->error <br> SQL command = $sql");
+				}
+			}
 		}
 
 		header("Location: https://fall-2020.cs.utexas.edu/cs329e-bulko/tjensen/project4/adventure.php");
