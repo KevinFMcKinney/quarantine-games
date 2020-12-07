@@ -81,7 +81,7 @@
             <form action="feedback.php" method="POST">
                 <input type="text" placeholder="User" name="user"><br>
                 <textarea placeholder="Comment" name="com" rows="4" cols="40"></textarea><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" id="feed">
             </form>
 
         </div>

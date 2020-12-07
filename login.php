@@ -32,16 +32,16 @@ function createUser(){
     <div id="header">
 
     <div id="title">
-        <a href="qgames-index.html" style="text-decoration:none"><h1>QUARANTINE GAMES</h1></a>
+        <a href="qgames-index.php" style="text-decoration:none"><h1>QUARANTINE GAMES</h1></a>
     </div>
 
     <div id="tabs">
-        <button class="tablink" onclick="location.href = 'sample.html';">Action</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Sports</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Adventure</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Puzzle</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Party</button>
-        <button class="tablink" id="last-tab" onclick="location.href = 'sample.html';">Strategy</button>
+            <button class="tablink" onclick="location.href = 'action.html';">Action</button>
+            <button class="tablink" onclick="location.href = 'sports.html';">Sports</button>
+            <button class="tablink" onclick="location.href = 'adventure.html';">Adventure</button>
+            <button class="tablink" onclick="location.href = 'puzzle.html';">Puzzle</button>
+            <button class="tablink" onclick="location.href = 'party.html';">Party</button>
+            <button class="tablink" id="last-tab" onclick="location.href = 'strategy.html';">Strategy</button>
     </div>
     
     </div>
