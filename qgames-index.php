@@ -114,7 +114,7 @@
     <div id="ajaxContainer">
         <h2>Top Games</h2>
         <div id="ajaxDiv"></div>
-        <button width = 25px; onclick="getTop()">View Top Games</button>
+        <button onclick="getTop()">View Top Games</button>
     </div>
 
 </div>

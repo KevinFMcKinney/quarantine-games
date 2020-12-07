@@ -1,6 +1,10 @@
 <html>
 
 	<?php
+		if (isset($_COOKIE['username'])) {
+		} else {
+			header('Location: https://fall-2020.cs.utexas.edu/cs329e-bulko/tjensen/project4/login.php');
+		}	
 		$server = "fall-2020.cs.utexas.edu";
 		$user = "cs329e_bulko_tjensen";
 		$pwd = "Cork!Legion!Oslo";
