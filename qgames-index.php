@@ -23,7 +23,7 @@
         </div>
 
         <div id="tabs">
-            <button class="tablink" onclick="location.href = 'action.html';">Action</button>
+            <button class="tablink" onclick="location.href = 'action.html';">Card Games</button>
             <button class="tablink" onclick="location.href = 'sports.html';">Sports</button>
             <button class="tablink" onclick="location.href = 'adventure.html';">Adventure</button>
             <button class="tablink" onclick="location.href = 'puzzle.html';">Puzzle</button>
