@@ -103,6 +103,7 @@
             <h2>The Purpose</h2>
             <p>During the pandemic, it's hard to socialize and not feel isolated. So our purpose was to showcase easy to access games on the internet for you to play with friends and family to connect.</p>
             <a href="contact.html">Contact Us</a>
+            <a href="feedback.php">Give us your feedback!</a>
         </div>
 
     </div>
