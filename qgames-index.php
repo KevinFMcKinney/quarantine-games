@@ -32,7 +32,14 @@
         </div>
 
     </div>
-    <p><?php print "<a id='login' href = 'login.php'>Log In/Register</a>"; ?></p>
+    <p  id='login'><?php
+        if (isset($_COOKIE['username'])){
+            print "Welcome back, " . $_COOKIE['username']; 
+        }
+        else{
+          print "<a id='login' href = 'login.php'>Log In/Register</a>";
+        }
+        ?></p>
 
     <div id="left-nav">
 

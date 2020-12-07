@@ -3,6 +3,9 @@ session_start();
 if (!($_POST['created'] == 'Submit')){
     createUser();
 }
+else if (isset($_COOKIE['username'])){
+    successfulLogIn();
+}
 else{
    checkUser();
 }
@@ -114,7 +117,8 @@ function checkUser(){
             $matchfound = true;
             if (trim($userdata[1]) == trim($userPass)){
                 //pass right
-                setcookie("username", $userdata[0], time()+3600, "/");
+                setcookie('username', 'yes', time()+3600);
+                echo $_COOKIE['useername'];
                 successfulLogIn();
             }
             else{
@@ -137,7 +141,7 @@ function checkUser(){
             die("Query failed: ($mysqli->error <br> SQL command = $command");
         }
         //user registered
-        setcookie("username", $userdata[0], time()+3600, "/");
+        setcookie("username", "yes", time()+3600, "/");
         successfulRegistration();
         
     }
@@ -269,6 +273,8 @@ function successfulLogIn(){
 </body>
 </html>
 TOP;
+print "yeah";
+print $_COOKIE['username'];
 }
 
 
