@@ -85,3 +85,25 @@ img {
     margin: auto;
 }
 
+input, textarea {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+}
+
+input[type="submit"] {
+    background: black;
+    color: white;
+    transition-duration: .5s;
+    height: 20px;
+    width: 70px;
+}
+
+input[type="submit"]:hover {
+    background-color: rgba(107, 136, 252, .7);
+    border: 2px solid black;
+    color: black;
+    cursor: pointer;
+}
