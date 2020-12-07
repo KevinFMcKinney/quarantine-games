@@ -23,14 +23,17 @@
                 var pSelector = event.target.id;
                 pSelector = "p#" + pSelector;
                 iframeSelector = "iframe#" + event.target.id;
+                imgSelector = "img#" + event.target.id;
                 $(pSelector).toggle();
                 $(iframeSelector).toggle();
+                $(imgSelector).toggle();
                 }
             
             for(var i = 0; i < dropDownArray.length; i++){
                 dropDownArray[i].addEventListener("click", showContent);
                 $("p#" + dropDownArray[i].id).hide();
                 $("iframe#" + dropDownArray[i].id).hide();
+                $("img#" + dropDownArray[i].id).hide();
             }
     });
     </script>
@@ -62,16 +65,18 @@
 
         <div class="box">
             <h2 id="box1">Cards Against Humanity</h2>
+            <img id="box1" src="Images/Cards_Against_Humanity.png" width="420" height="315">
             <p id="box1">A fun, whacky party game where you compete with your friends to make the whackiest combination of words, and only the funniest will be crowned the victor!!~ You can play it here at: <a href=https://pretendyoure.xyz/zy>https://pretendyoure.xyz/zy</a></p>
         </div>
         
         <div class="box">
             <h2 id="box2">Fishbowl</h2>
+            <img id="box2" src="Images/fishbowl.png" width="420" height="315">
             <p id="box2">Fishbowl is a fun, guessing game for all ages! Just hop on voice call and try to guess the word through charades, taboo or password. The minimum to play is 4 people, and the more the merrier! Check it out <a href="https://fishbowl-game.com/">here!</a></p>
         </div>
         
         <div class="box">
-            <h2 id="box3">QwiqWWit</h2>
+            <h2 id="box3">QwiqWit</h2>
             <iframe id="box3" width="420" height="315" src="https://www.youtube.com/embed/gpH7L3h_OW0"></iframe>
             <p id="box3">QwiqWit! The game where you prove you're the funniest person in the room. Check it out <a href="https://qwiqwit.com/">here!</a></p>
         </div>
