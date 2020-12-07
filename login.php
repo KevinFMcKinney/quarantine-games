@@ -64,6 +64,7 @@ function createUser(){
             </tr>
         </table>    
     </form>
+    <script src="submit.js"></script>
 </body>
 </html>
 TOP;
@@ -72,64 +73,80 @@ TOP;
 
 
 function checkUser(){
-    $file = fopen("passwd.txt", "r");
-    $username = $_POST["user"];
-    $password = $_POST["pass"];
+    $userUser = $_POST["user"];
+    $userPass = $_POST["pass"];
+    
+    $server = "fall-2020.cs.utexas.edu";
+    $dbUser = "cs329e_bulko_uzairs";
+    $dbPass = "Pivot3mayor9suite";
+    $dbName = "cs329e_bulko_uzairs";
+    
+    $mysqli = new mysqli ($server,$dbUser,$dbPass,$dbName);
     //read the entire file and put it in an array
-    $listOfUsers = array();
-    while (!feof($file))
-    {
-        $line = fgets($file);
-        $listOfUsers[] = $line;
+    if ($mysqli->connect_errno) {
+        die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
+    }
+
+    $command = 'SELECT * FROM passwords;';
+    
+    // Issue the query
+    $result = $mysqli->query($command);
+    
+    // Verify the result
+    if (!$result) {
+        die("Query failed: ($mysqli->error <br> SQL command = $command");
     }
     
-    $matchfound = false;
-    for($i =0; $i < (count($listOfUsers) - 1); $i++){
-        $userdata = preg_split('/:+/',$listOfUsers[$i]);
+    $row = mysqli_fetch_row($result);
+    $listOfUsers = array();
+    
+    while (!($row == false)){
+        $listOfUsers[] = $row;
+        $row = mysqli_fetch_row($result);
+    }
+   
+    
+ $matchfound = false;
+    for($i =0; $i < (count($listOfUsers)); $i++){
+        $userdata = $listOfUsers[$i];
         //do regex check on each array and see if user is registerd
-        if ($userdata[0] == $username){
+        if ($userdata[0] == $userUser){
             $matchfound = true;
-            // set the cookie
-            if (trim($userdata[1]) == trim($password)){
-                setcookie("username", $username, time()+120, "/");
-                $_SESSION['login'] = 'yes';
+            if (trim($userdata[1]) == trim($userPass)){
+                //pass right
+                setcookie("username", $userdata[0], time()+3600, "/");
+                successfulLogIn();
             }
             else{
-                print 'Invalid Password! Refresh and try again!';
-                print <<<HIDDENFORM
-                <html lang="en">
-
-<head>
-
-	<title>Quarantine Games</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="A User Registration Page">
-    <meta name="author" content="Uzair Saleem">
-    <link rel="stylesheet" href="signup.css">
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
-
-</head>
-<body>
-
-    <form action="$script" method="post" onsubmit="return validateUserGeneration()">
-        <table>
-            <tr>
-                <td id="buttonRow"><input id="submitButton" type=submit name="created" value="Refresh">
-            </tr>
-        </table>    
-    </form>
-</body>
-</html>
-HIDDENFORM;
-                break;
-            }
+                $command = "UPDATE passwords SET passwords = " . "'" . $userPass . "'" . "WHERE username = " . "'" . $userUser . "';";
+                $result = $mysqli->query($command);
+                // Verify the result
+                if (!$result) {
+                    die("Query failed: ($mysqli->error <br> SQL command = $command");
+                    }
+                //pas swrong
+                wrongPassword();
+                }   
         }
     }
-    fclose($file);
-    // if user is not registered then register them
-    if ($matchfound == false){
-        print <<<REGISTER
-                <html lang="en">
+    if (!$matchfound){
+        $command = "INSERT INTO passwords VALUES ( " . "'" . $userUser . "', " . "'" . $userPass . "' );";
+        $result = $mysqli->query($command);
+        // Verify the result
+        if (!$result) {
+            die("Query failed: ($mysqli->error <br> SQL command = $command");
+        }
+        //user registered
+        setcookie("username", $userdata[0], time()+3600, "/");
+        successfulRegistration();
+        
+    }
+}
+
+function wrongPassword(){
+    $script = $_SERVER['PHP_SELF']; 
+    print <<<TOP
+<html lang="en">
 
 <head>
 
@@ -143,23 +160,38 @@ HIDDENFORM;
 </head>
 <body>
 
-    <form action="$script" method="post" onsubmit="return validateUserGeneration()">
-        <table>
-            <h2>User Log In Failure!</h2>
-            <p>Press the button below to try again!</p>
-            <tr>
-                <td id="buttonRow"><input id="submitButton" type=submit name="created" value="Refresh">
-            </tr>
-        </table>    
+    <div id="header">
+            
+    <div id="title">
+        <a href="qgames-index.php" style="text-decoration:none"><h1>QUARANTINE GAMES</h1></a>
+    </div>
+
+    <div id="tabs">
+        <button class="tablink" onclick="location.href = 'sample.html';">Card Games</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Sports</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Adventure</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Puzzle</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Party</button>
+        <button class="tablink" id="last-tab" onclick="location.href = 'sample.html';">Strategy</button>
+    </div>
+    
+    </div>
+    
+    
+    
+    <form action="$script" method="post">
+        <h2>Wrong Passwword!</h2>
+        <p>Please continue to back to the main site by clicking the banner! </p>
+        <input id="submitButton" type=submit name="created" value="Refresh">   
     </form>
 </body>
 </html>
-REGISTER;
-    
-    }
-    else{
-        print <<<LOGIN
-                <html lang="en">
+TOP;
+}
+
+function successfulRegistration(){
+     print <<<TOP
+<html lang="en">
 
 <head>
 
@@ -173,20 +205,70 @@ REGISTER;
 </head>
 <body>
 
-    <form action="database.php" method="post" onsubmit="return validateUserGeneration()">
-        <table>
-            <h2>User Log In Successful!</h2>
-            <p>Continue to the database!</p>
-            <tr>
-                <td id="buttonRow"><input id="submitButton" type=submit name="created" value="Continue">
-            </tr>
-        </table>    
+    <div id="header">
+            
+    <div id="title">
+        <a href="qgames-index.php" style="text-decoration:none"><h1>QUARANTINE GAMES</h1></a>
+    </div>
+
+    <div id="tabs">
+        <button class="tablink" onclick="location.href = 'sample.html';">Card Games</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Sports</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Adventure</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Puzzle</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Party</button>
+        <button class="tablink" id="last-tab" onclick="location.href = 'sample.html';">Strategy</button>
+    </div>
+    
+    </div>
+    <form>
+    <h2>User Registration Sucessful! </h2>
+    <p>Please continue to back to the main site by clicking the banner! </p>
     </form>
 </body>
 </html>
-LOGIN;
+TOP;
+}
+
+function successfulLogIn(){
+     print <<<TOP
+<html lang="en">
+
+<head>
+
+	<title>Quarantine Games</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="A User Registration Page">
+    <meta name="author" content="Uzair Saleem">
+    <link rel="stylesheet" href="signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div id="header">
+            
+    <div id="title">
+        <a href="qgames-index.php" style="text-decoration:none"><h1>QUARANTINE GAMES</h1></a>
+    </div>
+
+    <div id="tabs">
+        <button class="tablink" onclick="location.href = 'sample.html';">Card Games</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Sports</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Adventure</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Puzzle</button>
+        <button class="tablink" onclick="location.href = 'sample.html';">Party</button>
+        <button class="tablink" id="last-tab" onclick="location.href = 'sample.html';">Strategy</button>
+    </div>
     
-    }
+    </div>
+    <form>
+    <h2>User Log In Sucessful! </h2>
+    <p>Please continue to back to the main site by clicking the banner! </p>
+    </form>
+</body>
+</html>
+TOP;
 }
 
 
