@@ -32,6 +32,25 @@
         </div>
 
     </div>
+    <div id="ajaxContainer">
+        <h2>Top Games</h2>
+        <div id="ajaxDiv"></div>
+        <button onclick="getTop()">View Top Games</button>
+    </div>
+    <script>
+        function getTop() {
+            var xhttp;
+            myDiv = document.getElementById("ajaxDiv");
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myDiv.innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "ajax.php", true);
+            xhttp.send();
+        }
+    </script>
     <p  id='login'><?php
         if (isset($_COOKIE['username'])){
             print "Welcome back, " . $_COOKIE['username']; 
@@ -41,7 +60,7 @@
         }
         ?></p>
 
-    <div id="left-nav">
+    //<div id="left-nav">
 
 
     <div id="content">
@@ -89,20 +108,6 @@
 
             </script>
         </div>
-	<script>
-		function getTop() {
-			var xhttp;
-			myDiv = document.getElementById("ajaxDiv");
-			xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					myDiv.innerHTML = this.responseText;
-				}
-			};
-			xhttp.open("GET", "ajax.php", true);
-			xhttp.send();
-		}
-	</script>
         <div id="purpose">
             <h2>The Purpose</h2>
             <p>During the pandemic, it's hard to socialize and not feel isolated. So our purpose was to showcase easy to access games on the internet for you to play with friends and family to connect.</p>
@@ -111,12 +116,6 @@
         </div>
 
     </div>
-    <div id="ajaxContainer">
-        <h2>Top Games</h2>
-        <div id="ajaxDiv"></div>
-        <button onclick="getTop()">View Top Games</button>
-    </div>
-
 </div>
 </div>
 
