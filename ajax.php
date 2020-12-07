@@ -1,4 +1,14 @@
-<html>
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+	<title>AJAX Request handler</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="AJAX handler">
+	<meta name="author" content="Thomas Jensen">
+</head>
+<body>
+	
 	<?php
 		$server = "fall-2020.cs.utexas.edu";
 		$user = "cs329e_bulko_tjensen";
@@ -15,11 +25,11 @@
 		}
 		$x = 0;
 		if ($result->num_rows > 0) {
-			while($row = $result->fetch_assoc()) {
-				echo 'Game: ' . $row['game'] . '<br>';	
+			while($x<5 && $row = $result->fetch_assoc()) {
+				echo $x + 1 . '. ' . $row['game'] . '<br>';
+				$x = $x + 1;
 			}
-		} else {
-			echo 'why';
-		}
-	?>
+		} else {}
+?>
+</body>
 </html>

@@ -68,7 +68,7 @@
 			}
 			if ($num != 0) {
 				$num = $num - 1;
-				$sql = "UPDATE games SET num = " . $num . " WHERE game = ''League of Legends";
+				$sql = "UPDATE games SET num = " . $num . " WHERE game = 'League of Legends'";
 				$newresult = $mysqli->query($sql);
 				if (!$newresult) {
 					die("Query Failed: ($mysqli->error <br> SQL command = $sql");
@@ -556,6 +556,6 @@
 			}
 		}
 
-		header("Location: https://fall-2020.cs.utexas.edu/cs329e-bulko/tjensen/project4/adventure.php");
+		header("Location: javascript://history.go(-1)");
 	?>
 </html>
