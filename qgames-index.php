@@ -76,7 +76,7 @@
             <h3>Gameplay:</h3>
 
             <div id="gameImg">
-                <iframe id="vid" width="500px" height="281px"></iframe>
+                <iframe id="vid" width="90%" height="281px"></iframe>
             </div>
 
             <script>
