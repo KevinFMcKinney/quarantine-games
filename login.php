@@ -117,12 +117,11 @@ function checkUser(){
             $matchfound = true;
             if (trim($userdata[1]) == trim($userPass)){
                 //pass right
-                setcookie('username', 'yes', time()+3600);
-                echo $_COOKIE['useername'];
+                setcookie('username', $userUser, time()+3600);
                 successfulLogIn();
             }
             else{
-                $command = "UPDATE passwords SET passwords = " . "'" . $userPass . "'" . "WHERE username = " . "'" . $userUser . "';";
+                $command = "UPDATE passwords SET passwords = " . "'" . mysql_real_escape_string($userPass) . "'" . "WHERE username = " . "'" . mysql_real_escape_string($userUser) . "';";
                 $result = $mysqli->query($command);
                 // Verify the result
                 if (!$result) {
@@ -134,14 +133,14 @@ function checkUser(){
         }
     }
     if (!$matchfound){
-        $command = "INSERT INTO passwords VALUES ( " . "'" . $userUser . "', " . "'" . $userPass . "' );";
+        $command = "INSERT INTO passwords VALUES ( " . "'" . mysql_real_escape_string($userUser) . "', " . "'" . mysql_real_escape_string($userPass) . "' );";
         $result = $mysqli->query($command);
         // Verify the result
         if (!$result) {
             die("Query failed: ($mysqli->error <br> SQL command = $command");
         }
         //user registered
-        setcookie("username", "yes", time()+3600, "/");
+        setcookie("username", $userUser, time()+3600, "/");
         successfulRegistration();
         
     }
