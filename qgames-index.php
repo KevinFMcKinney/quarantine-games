@@ -59,8 +59,8 @@
           print "<a id='login' href = 'login.php'>Log In/Register</a>";
         }
         ?></p>
-
-
+        
+    <div id="leftnav">
 
     <div id="content">
 
