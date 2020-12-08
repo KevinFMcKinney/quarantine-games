@@ -53,13 +53,13 @@ function createUser(){
                 <td id="words">Username:</td>
             </tr>
             <tr>
-            <td><label><input id="username" name="user" type="text"></label></td>
+            <td><label><input id="username" name="user" type="text" required></label></td>
             </tr>
             <tr>
                 <td id="words">Password:</td>
             </tr>
             <tr>
-            <td><label><input id="password" name="pass" type="password"></label></td>
+            <td><label><input id="password" name="pass" type="password" required></label></td>
             </tr>
             <tr>
                 <td id="buttonRow"><input id="submitButton" type=submit name="created" value="Submit">
