@@ -12,31 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>$(document).ready(function(){
-    // jQuery methods go here
-            var dropDownArray = new Array();
-            dropDownArray[0] = document.querySelector("#box1");
-            dropDownArray[1] = document.querySelector("#box2");
-            dropDownArray[2] = document.querySelector("#box3");
-            function showContent(event){
-                console.log("Clicked");
-                var pSelector = event.target.id;
-                pSelector = "p#" + pSelector;
-                iframeSelector = "iframe#" + event.target.id;
-                imgSelector = "img#" + event.target.id;
-                $(pSelector).toggle();
-                $(iframeSelector).toggle();
-                $(imgSelector).toggle();
-                }
-            
-            for(var i = 0; i < dropDownArray.length; i++){
-                dropDownArray[i].addEventListener("click", showContent);
-                $("p#" + dropDownArray[i].id).hide();
-                $("iframe#" + dropDownArray[i].id).hide();
-                $("img#" + dropDownArray[i].id).hide();
-            }
-    });
-    </script>
 	
 </head>
 

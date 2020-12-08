@@ -36,7 +36,7 @@ function createUser(){
     </div>
 
     <div id="tabs">
-            <button class="tablink" onclick="location.href = 'action.html';">Action</button>
+            <button class="tablink" onclick="location.href = 'action.html';">Card Games</button>
             <button class="tablink" onclick="location.href = 'sports.html';">Sports</button>
             <button class="tablink" onclick="location.href = 'adventure.html';">Adventure</button>
             <button class="tablink" onclick="location.href = 'puzzle.html';">Puzzle</button>
@@ -121,19 +121,16 @@ function checkUser(){
                 successfulLogIn();
             }
             else{
-                $command = "UPDATE passwords SET passwords = " . "'" . mysql_real_escape_string($userPass) . "'" . "WHERE username = " . "'" . mysql_real_escape_string($userUser) . "';";
-                $result = $mysqli->query($command);
-                // Verify the result
-                if (!$result) {
-                    die("Query failed: ($mysqli->error <br> SQL command = $command");
-                    }
                 //pas swrong
                 wrongPassword();
                 }   
         }
     }
     if (!$matchfound){
-        $command = "INSERT INTO passwords VALUES ( " . "'" . mysql_real_escape_string($userUser) . "', " . "'" . mysql_real_escape_string($userPass) . "' );";
+        $username = $mysqli -> real_escape_string($_POST['user']);
+        $password = $mysqli -> real_escape_string($_POST['pass']);
+        $command = "INSERT INTO passwords VALUES ( " . "'" . $username . "', " . "'" . $password . "' );";
+        
         $result = $mysqli->query($command);
         // Verify the result
         if (!$result) {
@@ -142,7 +139,6 @@ function checkUser(){
         //user registered
         setcookie("username", $userUser, time()+3600, "/");
         successfulRegistration();
-        
     }
 }
 
@@ -170,12 +166,12 @@ function wrongPassword(){
     </div>
 
     <div id="tabs">
-        <button class="tablink" onclick="location.href = 'sample.html';">Card Games</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Sports</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Adventure</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Puzzle</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Party</button>
-        <button class="tablink" id="last-tab" onclick="location.href = 'sample.html';">Strategy</button>
+            <button class="tablink" onclick="location.href = 'action.html';">Card Games</button>
+            <button class="tablink" onclick="location.href = 'sports.html';">Sports</button>
+            <button class="tablink" onclick="location.href = 'adventure.html';">Adventure</button>
+            <button class="tablink" onclick="location.href = 'puzzle.html';">Puzzle</button>
+            <button class="tablink" onclick="location.href = 'party.html';">Party</button>
+            <button class="tablink" id="last-tab" onclick="location.href = 'strategy.html';">Strategy</button>
     </div>
     
     </div>
@@ -215,12 +211,12 @@ function successfulRegistration(){
     </div>
 
     <div id="tabs">
-        <button class="tablink" onclick="location.href = 'sample.html';">Card Games</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Sports</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Adventure</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Puzzle</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Party</button>
-        <button class="tablink" id="last-tab" onclick="location.href = 'sample.html';">Strategy</button>
+            <button class="tablink" onclick="location.href = 'action.html';">Card Games</button>
+            <button class="tablink" onclick="location.href = 'sports.html';">Sports</button>
+            <button class="tablink" onclick="location.href = 'adventure.html';">Adventure</button>
+            <button class="tablink" onclick="location.href = 'puzzle.html';">Puzzle</button>
+            <button class="tablink" onclick="location.href = 'party.html';">Party</button>
+            <button class="tablink" id="last-tab" onclick="location.href = 'strategy.html';">Strategy</button>
     </div>
     
     </div>
@@ -249,19 +245,19 @@ function successfulLogIn(){
 </head>
 <body>
 
-    <div id="header">
-            
+     <div id="header">
+
     <div id="title">
         <a href="qgames-index.php" style="text-decoration:none"><h1>QUARANTINE GAMES</h1></a>
     </div>
 
     <div id="tabs">
-        <button class="tablink" onclick="location.href = 'sample.html';">Card Games</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Sports</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Adventure</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Puzzle</button>
-        <button class="tablink" onclick="location.href = 'sample.html';">Party</button>
-        <button class="tablink" id="last-tab" onclick="location.href = 'sample.html';">Strategy</button>
+            <button class="tablink" onclick="location.href = 'action.html';">Card Games</button>
+            <button class="tablink" onclick="location.href = 'sports.html';">Sports</button>
+            <button class="tablink" onclick="location.href = 'adventure.html';">Adventure</button>
+            <button class="tablink" onclick="location.href = 'puzzle.html';">Puzzle</button>
+            <button class="tablink" onclick="location.href = 'party.html';">Party</button>
+            <button class="tablink" id="last-tab" onclick="location.href = 'strategy.html';">Strategy</button>
     </div>
     
     </div>
@@ -272,8 +268,6 @@ function successfulLogIn(){
 </body>
 </html>
 TOP;
-print "yeah";
-print $_COOKIE['username'];
 }
 
 
